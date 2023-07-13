@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Sharing App</title>
+</head>
+<body>
+    <% if(locals.fileLink != null) {%>
+        <div style="margin-bottom:1rem;">
+            Your File is Uploaded..
+            <a href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
+        </div>
+        <% }%>
+        <h1>Share with your friends</h1>
+    <form action="/upload" enctype="multipart/form-data" method="post" style="display:grid; gap: .5rem; grid-template-columns: auto 1fr; max-width:500px; margin:0 auto; padding-top: 200px;">
+        <label for="file">File</label>
+        <input type="file" name="file" id="file">
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <button style="grid-column: span 2;" type="submit">Share</button>
+    </form>
+    
+</body>
+</html>
